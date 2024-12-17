@@ -16,3 +16,14 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run Tests
         run: make tests
+  Docs:
+     runs-on: ubuntu-latest
+     steps:
+      - uses: actions/checkout@v2
+      - run: make doc
+      - name: Deploy
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          build_dir: ./dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
