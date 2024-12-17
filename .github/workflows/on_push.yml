@@ -7,3 +7,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Check script
         run: test -e run.sh
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
