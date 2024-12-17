@@ -31,11 +31,9 @@ jobs:
      runs-on: ubuntu-latest
      steps:
       - uses: actions/checkout@v2
-      - name: Build and push Docker image
-        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+      - name: Build and push
+        uses: docker/build-push-action@v6
         with:
-          context: .
-          file: ./Dockerfile
-          platforms: ${{ matrix.platforms }}
+          context: "{{defaultContext}}:mysubdir"
           push: true
-          outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
+          tags: user/app:latest
