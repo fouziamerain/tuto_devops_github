@@ -1,10 +1,10 @@
 name: 'Test'
 description: 'description'
 inputs:
-  var1:  
-    description: 'Test'
+  token:  
+    description: 'Token'
     required: true
-    default: 'Test'
+    default: '0'
 runs:
   using: "composite"
   steps:
@@ -14,7 +14,7 @@ runs:
         with:
           registry: https://ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ inputs.token }}
       - uses: docker/build-push-action@v2
         with:
           context: .
