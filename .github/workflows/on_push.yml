@@ -10,6 +10,7 @@ jobs:
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
   tests:
+    needs: testscript
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
