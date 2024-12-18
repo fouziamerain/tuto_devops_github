@@ -11,5 +11,5 @@ jobs:
       - uses: ./.github/actions/test-action
         with:
           docker_repo: trialk033s3.jfrog.io/docker-trial
-          docker_user: fouzia.merain@gmail.com
+          docker_user: fouzia
           docker_token: ${{ secrets.JFROG_DOCKER_TOKEN }}
