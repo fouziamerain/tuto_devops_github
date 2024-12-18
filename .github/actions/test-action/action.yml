@@ -11,13 +11,13 @@ inputs:
 runs:
   using: "composite"
   steps:
-      - uses: actions/checkout@v2
-      - name: Log in to the Container registry
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
-        with:
-          registry: https://${{ inputs.docker_repo }}
-          username: ${{ inputs.docker_user }}
-          password: ${{ inputs.docker_token }}
+    - uses: actions/checkout@v2
+    - name: Log in to the Container registry
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      with:
+        registry: https://${{ inputs.docker_repo }}
+        username: ${{ inputs.docker_user }}
+        password: ${{ inputs.docker_token }}
     - uses: docker/build-push-action@v2
       with:
         context: .
